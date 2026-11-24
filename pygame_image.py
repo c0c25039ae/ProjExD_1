@@ -30,14 +30,21 @@ def main():
 
         screen.blit(tori_img,tori_rct)
         key_lst=pg.key.get_pressed()
+
+        side_d_speed=-1
+        a=side_d_speed
         if key_lst[pg.K_UP]:
             tori_rct.move_ip((0,-1))
         elif key_lst[pg.K_DOWN]:
             tori_rct.move_ip((0,1))
         elif key_lst[pg.K_LEFT]:
-            tori_rct.move_ip((-1,0))
+            tori_rct.move_ip((-1+a,0))
         elif key_lst[pg.K_RIGHT]:
-                tori_rct.move_ip((1,0))
+            tori_rct.move_ip((1-a,0))
+        #elif key_lst[pg.K_RIGHT]==False:
+            #tori_rct.move_ip((-1,0))
+        tori_rct.move_ip((a,0))
+        
         pg.display.update()
         tmr += 1        
         clock.tick(200)
