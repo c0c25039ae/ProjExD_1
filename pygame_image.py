@@ -34,16 +34,19 @@ def main():
         side_d_speed=-1
         a=side_d_speed
         if key_lst[pg.K_UP]:
-            tori_rct.move_ip((0,-1))
+            s_v=-1
         elif key_lst[pg.K_DOWN]:
-            tori_rct.move_ip((0,1))
+            s_v=1
         elif key_lst[pg.K_LEFT]:
-            tori_rct.move_ip((-1+a,0))
+            s_b=-1
         elif key_lst[pg.K_RIGHT]:
-            tori_rct.move_ip((1-a,0))
+            s_b=1-a
+        else:
+            s_v=0
+            s_b=0
         #elif key_lst[pg.K_RIGHT]==False:
             #tori_rct.move_ip((-1,0))
-        tori_rct.move_ip((a,0))
+        tori_rct.move_ip((s_b+a,s_v))
         
         pg.display.update()
         tmr += 1        
