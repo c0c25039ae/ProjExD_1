@@ -21,10 +21,10 @@ def main():
         screen.blit(bg_img, [0, 0])
 
         screen.blit(tori_img,[300,200])
-        
+
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(0)
 
         
 
