@@ -12,17 +12,21 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg")
     tmr = 0
 
+    rebg_img=pg.transform.flip(bg_img,True,False)
+    
     tori_img=pg.image.load("fig/3.png")
     tori_img=pg.transform.flip(tori_img,True,False)
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        x=tmr
+        x=tmr%3200#練習５
 
         screen.blit(bg_img, [-x, 0])
+        screen.blit(rebg_img, [-x+1600, 0])
+        screen.blit(bg_img, [-x+3200, 0])
 
         screen.blit(tori_img,[300,200])
-
+        print(x)
         pg.display.update()
         tmr += 1        
         clock.tick(200)
