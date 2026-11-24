@@ -16,6 +16,9 @@ def main():
     
     tori_img=pg.image.load("fig/3.png")
     tori_img=pg.transform.flip(tori_img,True,False)
+
+    tori_rct=tori_img.get_rect()
+    tori_rct.center=300,200
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
@@ -25,8 +28,16 @@ def main():
         screen.blit(rebg_img, [-x+1600, 0])
         screen.blit(bg_img, [-x+3200, 0])
 
-        screen.blit(tori_img,[300,200])
-        print(x)
+        screen.blit(tori_img,tori_rct)
+        key_lst=pg.key.get_pressed()
+        if key_lst[pg.K_UP]:
+            tori_rct.move_ip((0,-1))
+        elif key_lst[pg.K_DOWN]:
+            tori_rct.move_ip((0,1))
+        elif key_lst[pg.K_LEFT]:
+            tori_rct.move_ip((-1,0))
+        elif key_lst[pg.K_RIGHT]:
+                tori_rct.move_ip((1,0))
         pg.display.update()
         tmr += 1        
         clock.tick(200)
